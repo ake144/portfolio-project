@@ -9,7 +9,7 @@ const projectsData = [
   {
     id: 1,
     title: "Crypto market",
-    description: "latest cryto market updates, get whole info about the crypto price, market cap and 24 changes within prices of crypto. You can also get description about individual crypto coins.",
+    description: "latest cryto market updates, get whole info about the crypto price, market cap and 24 changes within prices of crypto.",
     image: "/images/crypto.jpg",
     tag: ["All", "Web"],
     gitUrl: "/",
@@ -18,7 +18,7 @@ const projectsData = [
   {
     id: 2,
     title: "Nextjs animated Portfolio Website",
-    description: "Project 2 description",
+    description: "personal portfolio site built by Nextjs, Framer motion, shadcn, and tailwindcss.",
     image: "images//portfolio.jpg",
     tag: ["All", "Web"],
     gitUrl: "/",
@@ -28,7 +28,7 @@ const projectsData = [
     id: 3,
     title: "url shortener",
     description: "A URL shortener web application built with Next.js, Redis Upstash for database storage, and Shadcn for UI components.",
-    image: "images/url shortener.png",
+    image: "/images/urlShortener.png",
     tag: ["All", "Web"],
     gitUrl: "/",
     previewUrl: "https://gtly.vercel.app/",
@@ -36,9 +36,9 @@ const projectsData = [
   {
     id: 4,
     title: "Next.js Newsletter and  Blog site",
-    description: "Blog and Newsletter StartApp crafted with Next.js + Shadcn + HyperUI + Prisma + Supabase. 🌟 Dive into a world of captivating content creation and sharing!",
-    image: "/images/projects/4.png",
-    tag: ["All", "Mobile"],
+    description: "Blog and Newsletter StartApp crafted with Next.js + Shadcn + HyperUI + Prisma + Supabase.",
+    image: "/images/newsBlog.png",
+    tag: ["All", "Web"],
     gitUrl: "/",
     previewUrl: "https://next-article.vercel.app/",
   },
@@ -55,8 +55,8 @@ const projectsData = [
     id: 6,
     title: "Wordpress site",
     description: "wordpress site customized by Elementor and other plugins. seo first ",
-    image: "/images/projects/6.png",
-    tag: ["All", "Web"],
+    image: "/images/coinged.png",
+    tag: ["All", "WordPress"],
     gitUrl: "/",
     previewUrl: "coinged.com",
   },
@@ -102,8 +102,8 @@ const ProjectsSection = () => {
         />
         <ProjectTag
           onClick={handleTagChange}
-          name="Mobile"
-          isSelected={tag === "Mobile"}
+          name="WordPress"
+          isSelected={tag === "WordPress"}
         />
       </div>
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
