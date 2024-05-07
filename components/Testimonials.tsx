@@ -70,8 +70,7 @@ const Testimonials: React.FC<SlideProps> = () => {
                         </h2>
 
                         <p className="mt-4 dark:text-white text-gray-700">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas veritatis illo placeat
-                            harum porro optio fugit a culpa sunt id!
+                                Hear what others are saying about my work.
                         </p>
 
                         <div className="hidden lg:mt-8 lg:flex lg:gap-4">
@@ -112,18 +111,18 @@ const Testimonials: React.FC<SlideProps> = () => {
                                         </div>
 
                                         <div className="mt-4">
-                                            <p className="text-2xl font-bold text-rose-600 sm:text-3xl">Stay in Alive</p>
+                                            <p className="text-2xl font-bold text-rose-600 sm:text-3xl">He is Inevitable</p>
 
                                             <p className="mt-4 leading-relaxed dark:text-white text-gray-700">
-                                                No, Rose, they are not breathing. And they have no arms or legs … Where are
-                                                they? You know what? If we come across somebody with no arms or legs, do we
-                                                bother resuscitating them? I mean, what quality of life do we have there?
+                                            Knowing him has shown me what true dedication looks like. He's a hard worker who stops at nothing to achieve his goals.
+                                             His unwavering belief in his principles and  vast experience in the tech world.
+                                              He's not just a colleague; he's an inspiration.
                                             </p>
                                         </div>
                                     </div>
 
                                     <footer className="mt-4 text-sm font-medium dark:text-white text-gray-700 sm:mt-6">
-                                        &mdash; Michael Scott
+                                        &mdash; Degefe Abebe <span className='text-green-500 text-xl'>-  </span>student at WSU
                                     </footer>
                                 </blockquote>
                             </div>
@@ -149,23 +148,25 @@ const Testimonials: React.FC<SlideProps> = () => {
                                             </div>
 
                                             <div className="mt-4">
-                                                <p className="text-2xl font-bold text-rose-600 sm:text-3xl">Stay in Alive</p>
+                                                <p className="text-2xl font-bold text-rose-600 sm:text-3xl">He is the future</p>
 
                                                 <p className="mt-4 leading-relaxed dark:text-white text-gray-700">
-                                                    No, Rose, they are not breathing. And they have no arms or legs … Where
-                                                    are they? You know what? If we come across somebody with no arms or legs,
-                                                    do we bother resuscitating them? I mean, what quality of life do we have
-                                                    there?
+                                                He is the epitome of potential, embodying innovation and determination.
+                                                 With his visionary mindset and unwavering commitment, he's destined to shape the future.
+                                                 A trailblazer in every sense, he's paving the way for what's to come.
                                                 </p>
                                             </div>
                                         </div>
 
                                         <footer className="mt-4 text-sm font-medium dark:text-white text-gray-700 sm:mt-6">
-                                            &mdash; Michael Scott
+                                            &mdash; Mengistu Abshiro <span className='text-green-500 text-xl'>- </span> from USA
                                         </footer>
                                     </blockquote>
                                 </div>
                             ))}
+                           
+                           
+
                         </div>
 
                         <div className="mt-8 lg:hidden">

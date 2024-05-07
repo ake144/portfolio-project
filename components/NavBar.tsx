@@ -25,7 +25,7 @@ export default function Navbar(){
 
  return(
         <nav className="p-10 flex justify-between items-center">
-    <h1 className="text-2xl md:text-3xl font-bold underline underline-offset-8 decoration-green-500 -rotate-6 ">akanji  🧑🏽‍💻  </h1>
+    <h1  className="text-2xl md:text-3xl font-bold underline underline-offset-8 decoration-green-500 -rotate-6 ">akanji  🧑🏽‍💻  </h1>
         
         <div  className="flex items-center gap-3">
                 {socials.map((social,index)=>{

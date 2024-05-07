@@ -82,3 +82,11 @@
     border-radius: 50%;
     box-shadow: 0 0 200px 130px  #e100ff;
   }
+
+  html {
+    font-family: var(--font-inter);
+  }
+   
+  h1 {
+    font-family: var(--font-roboto-mono);
+  }
