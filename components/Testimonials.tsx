@@ -14,10 +14,7 @@ import {
 } from "@/components/ui/pagination";
 
 interface SlideProps {
-title:string;
-description:string;
-author:string;
-location:string;
+
 }
 
 const slidesContent= [
