@@ -133,10 +133,11 @@ const Testimonials: React.FC<SlideProps> = () => {
                                             <p className="text-2xl font-bold text-rose-600 sm:text-3xl">He is Inevitable</p>
 
                                             <p className="mt-4 leading-relaxed dark:text-white text-gray-700">
-                                            Knowing him has shown me what true dedication looks like. He's a hard worker who stops at nothing to achieve his goals.
-                                             His unwavering belief in his principles and  vast experience in the tech world.
-                                              He's not just a colleague; he's an inspiration.
-                                            </p>
+                                            Knowing him has shown me what true dedication looks like. He&apos;s a hard worker who stops at nothing to achieve his goals.
+                                            His unwavering belief in his principles and vast experience in the tech world.
+                                            He&apos;s not just a colleague; he&apos;s an inspiration.
+                                        </p>
+
                                         </div>
                                     </div>
 
