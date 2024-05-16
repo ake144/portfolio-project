@@ -3,6 +3,7 @@ import type { Metadata} from 'next';
 import Head from 'next/head';
 import { Inter, Roboto_Mono } from 'next/font/google';
 import './globals.css';
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({
   subsets: ['latin'],
@@ -19,7 +20,7 @@ export const metadata:Metadata = {
    metadataBase: new URL("https://akanji-dev.vercel.app"),
    keywords:["aklilu Tamirat personal site", 'nextjs portfolio site', 'personal site', 'nextjs portfolio'],
    title: {
-      default:'Aklilu peronal site',
+      default:'Aklilu Tamirat',
       template: `%s | akanji personal site`
    },
    openGraph:{
