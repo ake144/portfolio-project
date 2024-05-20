@@ -15,9 +15,9 @@ export function SkillCards() {
   return (
     <section className="dark:text-white" id="skills">
       <div className="inline-block">
-      <h2 className="text-center justify-center text-4xl font-bold dark:text-white mt-4 ">
+      <h1 className="text-center justify-center text-4xl font-bold dark:text-white mt-4 ">
         Skills
-      </h2>
+      </h1>
       <div className="w-full h-2 bg-green-500 rounded-full rotate-6"></div>
         <div className="w-full h-2 bg-indigo-500 rounded-full -transition-x-8 rotate-7 "></div>
     </div>
