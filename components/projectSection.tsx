@@ -7,6 +7,15 @@ import { motion, useInView } from "framer-motion";
 
 const projectsData = [
   {
+    id: 0,
+    title: "Tv network",
+    description: "A TV network site built with Next.js, material Ui. it contains an admin panel to control programs of tv. It fetches data from the TV backend API.",
+    image: "/images/mb.png",
+    tag: ["All", "Web"],
+    gitUrl: "https://github.com/ake144/T-Movies",
+    previewUrl: "https://tm-movie.vercel.app/",
+  },
+  {
     id: 1,
     title: "Crypto market",
     description: "latest cryto market updates, get whole info about the crypto price, market cap and 24 changes within prices of crypto.",
