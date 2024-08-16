@@ -42,23 +42,23 @@ const BlogPost = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto lg:ml-[70px] lg:mt-[50px] mt-10  p-6">
+    <div className=" mx-auto lg:ml-[70px] lg:mt-[50px] mt-10  p-6">
        <Link href='/'>
         <div className='mb-2 p-3'>
           Back
         </div>
         </Link> 
-      <div className="flex flex-col md:flex-row">
-        <div className="md:w-2/3">
+      <div className="flex flex-col mx-10 md:flex-row">
+        <div className="md:w-1/2 w-full ">
           <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
           <p className="text-gray-600 mb-6">By {post.author} • {post.date}</p>
           <Image src={post.imageUrl} alt="Blog Post Image" height={400} width={300} className="w-full h-[500px] mb-6" />
           
-          <p className="mb-6">{post.content}</p>
+          <p className="mb-6 text-md">{post.content}</p>
           
         </div>
-        <div className="md:w-1/3 md:pl-6">
-          <div className="mb-6  border rounded-lg p-4">
+        <div className="w-1/2 flex flex-col mr-7 justify-end items-end" >
+          <div className="mb-6  border rounded-lg md:p-20 p-4">
             <h2 className="text-xl font-semibold border rounded-lg p-3 mb-4">Related Posts</h2>
             {relatedPosts.map((relatedPost, index) => (
               <div key={index} className="mb-4">
@@ -67,16 +67,7 @@ const BlogPost = () => {
               </div>
             ))}
           </div>
-          <div className="mb-6  border rounded-lg p-3">
-            <h2 className="text-xl font-semibold mb-4">Newsletter</h2>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full p-2 border border-gray-300 rounded mb-2"
-            />
-            <button className="w-full p-2 bg-blue-500 text-white rounded">Subscribe</button>
-          </div>
-          <div  className='border rounded-lg p-3'>
+          <div  className='border md:p-20 p-4 rounded-lg p-3'>
             <h2 className="text-xl font-semibold border rounded-lg p-2 mb-4">Popular Categories</h2>
             <ul>
               <li className="mb-2"><a href="#" className="text-blue-500">Decluttering</a></li>
@@ -86,7 +77,19 @@ const BlogPost = () => {
             </ul>
           </div>
         </div>
+    
       </div>
+      <div className='bottom-0 flex  mt-20 items-center justify-center'>
+        <div className="mb-6  border rounded-lg md:p-10 p-3">
+            <h2 className="text-xl font-semibold mb-4">Newsletter</h2>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="w-full p-2 border border-gray-300 rounded mb-2"
+            />
+            <button className="w-full p-2 bg-blue-500 text-white rounded">Subscribe</button>
+          </div>
+        </div>
     </div>
   );
 };
