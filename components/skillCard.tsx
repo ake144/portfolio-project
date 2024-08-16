@@ -10,6 +10,7 @@ import { SiMongodb } from "react-icons/si";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { SiTailwindcss } from "react-icons/si";
 import { IconType } from 'react-icons';
+import { Skills } from "./skills";
 
 export function SkillCards() {
   return (
@@ -21,8 +22,9 @@ export function SkillCards() {
       <div className="w-full h-2 bg-green-500 rounded-full rotate-6"></div>
         <div className="w-full h-2 bg-indigo-500 rounded-full -transition-x-8 rotate-7 "></div>
     </div>
-      <div className="max-w-5xl mx-auto px-8">
-        <HoverEffect items={projects} />
+      <div className="max-w-5xl mx-auto py-3 my-6 px-8">
+      <Skills  />
+        {/* <HoverEffect items={projects} /> */}
       </div>
     </section>
   );

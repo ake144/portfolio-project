@@ -4,6 +4,8 @@ import Head from 'next/head';
 import { Inter, Roboto_Mono } from 'next/font/google';
 import './globals.css';
 import { Analytics } from "@vercel/analytics/react";
+import BottomNav from '@/components/bottom';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -35,8 +37,20 @@ export const metadata: Metadata = {
         height: 630,
         alt: 'Aklilu tamirat personal site',
       }
-    ]
+    ],
   },
+  robots:{
+    index: true,
+    follow: true,
+    googleBot:{
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    'max-image-preview': 'large'
+
+    }
+  }
 };
 
 export default function RootLayout({
@@ -57,7 +71,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+           <TooltipProvider delayDuration={0}>
           {children}
+          <div  className='fixed bottom-0 left-50% z-10'>
+          <BottomNav  />
+          </div>
+
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </>

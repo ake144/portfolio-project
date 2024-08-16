@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import SparklesText from "./magicui/sparkles-text";
 
 const Footer = () => {
 
@@ -28,7 +29,10 @@ const Footer = () => {
   return (
     <footer className="footer border z-10 border-t-[#33353F] border-l-transparent border-r-transparent black:text-white">
       <div className="container p-12 flex justify-between">
-        <span>Akanji</span>
+        <span>
+          
+        <SparklesText text="Akanji"  className="text-xl"/>
+        </span>
         <div  className="flex items-center gap-3">
                 {socials.map((social,index)=>{
                         const icon = social.Icon

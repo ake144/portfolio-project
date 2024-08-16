@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import PulsatingButton from "./ui/pulsating-button";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -114,12 +115,9 @@ const EmailSection = () => {
                 placeholder="Let's talk about..."
               />
             </div>
-            <button
-              type="submit"
-              className="bg-primary-500  dark:text-white font-medium py-2.5 px-5 rounded-lg text-center items-center hover:text-xl hover:bg-green-500 "
-            >
-              Send Message
-            </button>
+
+             <PulsatingButton className="font-medium py-2.5 px-5 rounded-lg text-center  text-white items-center hover:text-xl hover:bg-green-500 flex justify-center left-50%"  type="submit"> send a message</PulsatingButton>
+
           </form>
         )}
       </div>
