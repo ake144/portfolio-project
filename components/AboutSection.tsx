@@ -4,6 +4,7 @@
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "./TabButton";
+import Link from "next/link";
 
 interface TabData {
   title: string;
@@ -12,6 +13,34 @@ interface TabData {
 }
 
 const TAB_DATA: TabData[] = [
+
+  {
+    title: "Certifications",
+    id: "certifications",
+    content: (
+      <ul className="list-disc pl-2">
+        <li   className="inline-block mx-8 py-1  sm:w-fit rounded-full">Coursera deep learning certification</li>
+        <li>
+        <Link
+              href="/fundamentals.pdf"
+              className="inline-block mx-8 py-1  sm:w-fit rounded-full"
+            >
+              Programming Fundamentals, Udacity
+          </Link>
+          </li>
+          <li>
+          <Link
+              href="/debugging.pdf"
+              className="inline-block mx-8 py-1  sm:w-fit rounded-full"
+            >
+              Debugging, Udemy
+          </Link>
+          </li>
+
+        <li  className="inline-block mx-8 py-1  sm:w-fit rounded-full">  FreeCode Camp front-end certification</li>
+      </ul>
+    ),
+  },
   {
     title: "Education",
     id: "education",
@@ -20,16 +49,6 @@ const TAB_DATA: TabData[] = [
         <li>Addis Ababa University, Computer Science</li>
         <li>Coursera</li>
         <li>Youtube Academy</li>
-      </ul>
-    ),
-  },
-  {
-    title: "Certifications",
-    id: "certifications",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>Coursera deep learning certification</li>
-        <li>FreeCode Camp front-end certification</li>
       </ul>
     ),
   },
@@ -61,19 +80,20 @@ const AboutSection: React.FC = () => {
             I am excited to work with others to create amazing applications.
           </p>
           <div className="flex flex-row justify-start mt-8">
-            <TabButton
-              selectTab={() => handleTabChange("education")}
-              active={tab === "education"}
-            >
-              {" "}
-              Education{" "}
-            </TabButton>
+          
             <TabButton
               selectTab={() => handleTabChange("certifications")}
               active={tab === "certifications"}
             >
               {" "}
               Certifications{" "}
+            </TabButton>
+            <TabButton
+              selectTab={() => handleTabChange("education")}
+              active={tab === "education"}
+            >
+              {" "}
+              Education{" "}
             </TabButton>
           </div>
           <div className="mt-8">
