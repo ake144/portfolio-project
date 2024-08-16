@@ -19,7 +19,10 @@ const TAB_DATA: TabData[] = [
     id: "certifications",
     content: (
       <ul className="list-disc pl-2">
-        <li   className="inline-block mx-8 py-1  sm:w-fit rounded-full">Coursera deep learning certification</li>
+        <li >
+          <p  className="inline-block mx-8 py-1  sm:w-fit rounded-full">Coursera deep learning certification 
+             </p>
+        </li>
         <li>
         <Link
               href="/fundamentals.pdf"
@@ -37,7 +40,10 @@ const TAB_DATA: TabData[] = [
           </Link>
           </li>
 
-        <li  className="inline-block mx-8 py-1  sm:w-fit rounded-full">  FreeCode Camp front-end certification</li>
+        <li >
+        <p  className="inline-block mx-8 py-1  sm:w-fit rounded-full">  FreeCode Camp front-end certification
+          </p>
+        </li>
       </ul>
     ),
   },
@@ -96,7 +102,7 @@ const AboutSection: React.FC = () => {
               Education{" "}
             </TabButton>
           </div>
-          <div className="mt-8">
+          <div className="mt-8 font-bold ">
             {selectedTab ? selectedTab.content : defaultTab.content}
           </div>
         </div>
