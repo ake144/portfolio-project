@@ -16,6 +16,7 @@ const BlogPost = () => {
             'Content-Type': 'application/json',
             'X-api-key': 'a059dca9-f0f0-4c28-93eb-f92735f9091c',
           },
+          mode: 'no-cors',
         });
 
         if (!res.ok) {
