@@ -1,11 +1,14 @@
 'use client'
 
+import { Button } from '@/components/ui/button';
 import Link from 'next/link'
+import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react'
 
 const BlogPost = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const router = useRouter()
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -19,6 +22,7 @@ const BlogPost = () => {
         const res = await fetch('https://nextjs-cms1.vercel.app/api/posts', {
           method: 'GET',
           headers,
+          cache:'force-cache'
         });
 
         if (!res.ok) {
@@ -45,11 +49,9 @@ const BlogPost = () => {
   return (
     <>
       <div className='flex flex-row'>
-        <Link href='/'>
-          <div className='mx-2 p-7'>
-            Back
-          </div>
-        </Link>
+        <Button onClick={() => router.back()} className='mb-6 p-5'>
+          Back
+         </Button>
         <h2 className='mt-[50px] p-3 text-4xl flex items-center justify-center'>
           Explore latest posts
         </h2>

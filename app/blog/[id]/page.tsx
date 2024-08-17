@@ -1,5 +1,6 @@
 'use client'
 
+import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -9,6 +10,7 @@ const BlogPost = ({ params }: { params: { id: string } }) => {
   const { id } = params;
   const [post, setPost] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  const router = useRouter()
 
   useEffect(() => {
     const fetchPostById = async () => {
@@ -24,6 +26,7 @@ const BlogPost = ({ params }: { params: { id: string } }) => {
         const res = await fetch(`https://nextjs-cms1.vercel.app/api/posts/${id}`, {
           method: 'GET',
           headers,
+          cache:'force-cache'
         });
 
         if (!res.ok) {
@@ -53,19 +56,18 @@ console.log('res:', res);
   }
 
   const relatedPosts = [
-    { title: "The Art of Decluttering", date: "May 15, 2024" },
-    { title: "Embracing Essentialism", date: "April 20, 2024" },
-    { title: "Minimalist Travel", date: "March 1, 2024" },
+    { title: "The Art of Programming", date: "May 15, 2024" },
+    { title: " Essentialis of C++", date: "April 20, 2024" },
+    { title: " The Winners mindset", date: "March 1, 2024" },
     { title: "The Minimalist Mindset", date: "February 15, 2024" },
   ];
 
   return (
     <div className="mx-auto lg:ml-[70px] lg:mt-[50px] mt-10 p-6">
-      <Link href='/'>
-        <div className='mb-2 p-3'>
+        <Button onClick={() => router.back()} className='mb-6 p-5'>
           Back
-        </div>
-      </Link>
+        </Button>
+   
       <div className="flex flex-col mx-10 md:flex-row">
         <div className="md:w-1/2 w-full">
           <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
@@ -89,10 +91,10 @@ console.log('res:', res);
           <div className='border md:p-20 p-4 rounded-lg p-3'>
             <h2 className="text-xl font-semibold border rounded-lg p-2 mb-4">Popular Categories</h2>
             <ul>
-              <li className="mb-2"><a href="#" className="text-blue-500">Decluttering</a></li>
-              <li className="mb-2"><a href="#" className="text-blue-500">Mindfulness</a></li>
-              <li className="mb-2"><a href="#" className="text-blue-500">Minimalist Living</a></li>
-              <li className="mb-2"><a href="#" className="text-blue-500">Sustainable Living</a></li>
+              <li className="mb-2"><a href="#" className="text-blue-500">Mastering javascript</a></li>
+              <li className="mb-2"><a href="#" className="text-blue-500">Leetcode hack</a></li>
+              <li className="mb-2"><a href="#" className="text-blue-500">The Beauty of Algorithms</a></li>
+              <li className="mb-2"><a href="#" className="text-blue-500">The Query Language</a></li>
             </ul>
           </div>
         </div>
