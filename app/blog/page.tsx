@@ -10,21 +10,23 @@ const BlogPost = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
+        const apiKey = process.env.NEXT_PUBLIC_API_KEY || '';
+        const headers: HeadersInit = {
+          'Content-Type': 'application/json',
+          'X-api-key': apiKey,
+        };
+
         const res = await fetch('https://nextjs-cms1.vercel.app/api/posts', {
           method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-api-key': 'a059dca9-f0f0-4c28-93eb-f92735f9091c',
-          },
-          mode: 'no-cors',
+          headers,
         });
 
         if (!res.ok) {
-          throw new Error('Failed to fetch posts');
+          throw new Error(`Failed to fetch posts: ${res.statusText}`);
         }
 
         const data = await res.json();
-        setPosts(data.data); // Assuming the API returns posts under `data`
+        setPosts(data.data[0].posts); // Assuming the API returns posts under `data`
         console.log('Fetched posts:', data.data);
       } catch (error) {
         console.error('Error fetching posts:', error);
@@ -61,7 +63,7 @@ const BlogPost = () => {
               className="h-56 w-full object-cover"
             />
             <div className="bg-white p-4 sm:p-6">
-              <time dateTime={new Date(post.created_at).toISOString()} className="block text-xs text-gray-500">
+              <time dateTime={new Date(post.created_at).toString()} className="block text-xs text-gray-500">
                 {new Date(post.created_at).toLocaleDateString()}
               </time>
               <Link href={`/blog/${post.id}`}>
