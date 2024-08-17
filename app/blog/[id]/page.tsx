@@ -73,7 +73,8 @@ console.log('res:', res);
           {post.image && (
             <Image src={post.image} alt="Blog Post Image" height={400} width={300} className="w-full h-[500px] mb-6" />
           )}
-          <p className="mb-6 text-md">{post.content}</p>
+             <pre  className='overflow-x-auto mb-6 text-md whitespace-pre-wrap '> {post.content} </pre> 
+          {/* <p className="">{</p> */}
         </div>
         <div className="w-1/2 flex flex-col mr-7 justify-end items-end">
           <div className="mb-6 border rounded-lg md:p-20 p-4">
