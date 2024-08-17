@@ -48,6 +48,7 @@ const BlogPost = () => {
 
   return (
     <>
+     <div className="mx-auto lg:ml-[70px] lg:mt-[50px] mt-10 p-6">
       <div className='flex flex-row'>
         <Button onClick={() => router.back()} className='mb-6 p-5'>
           Back
@@ -77,6 +78,7 @@ const BlogPost = () => {
             </div>
           </article>
         ))}
+      </div>
       </div>
     </>
   );
