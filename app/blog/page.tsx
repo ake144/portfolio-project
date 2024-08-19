@@ -53,7 +53,7 @@ const BlogPost = () => {
         <Button onClick={() => router.back()} className='mb-6 p-5'>
           Back
          </Button>
-        <h2 className='mt-[50px] p-3 text-4xl flex items-center justify-center'>
+        <h2 className='mt-[50px] p-6 text-4xl flex items-center justify-center'>
           Explore latest posts
         </h2>
       </div>
