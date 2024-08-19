@@ -79,6 +79,7 @@ export default function RootLayout({
 
           </TooltipProvider>
         </ThemeProvider>
+        <Analytics  />
       </body>
     </>
   );
