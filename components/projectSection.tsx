@@ -18,6 +18,16 @@ const projectsData = [
   },
   {
     id: 1,
+    title: "HypoGo",
+    description: "A site to maximixze the productivity of student, it contails job searching, scholarship site, AI tools, and other features",
+    image: "/home1.png",
+    tag: ["All", "Web"],
+    gitUrl: "https://github.com/ake144/hypoGoo",
+    previewUrl: "https://hypogo.vercel.app/",
+  },
+
+  {
+    id: 2,
     title: "Tv network",
     description: "A TV network site built with Next.js, material Ui. it contains an admin panel to control programs of tv. It fetches data from the TV backend API.",
     image: "/images/mb.png",
@@ -26,7 +36,7 @@ const projectsData = [
     previewUrl: "https://tm-movie.vercel.app/",
   },
   {
-    id: 2,
+    id: 3,
     title: "AI health",
     description: "let's elevate your health, and fitness to another level of stability with ai recommendation, current status of your health, schedule for exercise and get email notifications within scheduled dates",
     image: "/images/health.png",
@@ -35,7 +45,7 @@ const projectsData = [
     previewUrl: "https://ai-health1.vercel.app/",
   },
   {
-    id: 3,
+    id: 4,
     title: "Crypto market",
     description: "latest cryto market updates, get whole info about the crypto price, market cap and 24 changes within prices of crypto.",
     image: "/images/crypto.jpg",
@@ -44,7 +54,7 @@ const projectsData = [
     previewUrl: "https://crypto-info-xz8k.vercel.app/",
   },
   {
-    id: 4,
+    id: 5,
     title: "Nextjs animated Portfolio Website",
     description: "personal portfolio site built by Nextjs, Framer motion, shadcn, and tailwindcss.",
     image: "images//portfolio.jpg",
@@ -53,7 +63,7 @@ const projectsData = [
     previewUrl: "https://akejadev.vercel.app/",
   },
   {
-    id: 5,
+    id: 6,
     title: "url shortener",
     description: "A URL shortener web application built with Next.js, Redis Upstash for database storage, and Shadcn for UI components.",
     image: "/images/urlShortener.png",
@@ -62,7 +72,7 @@ const projectsData = [
     previewUrl: "https://gtly.vercel.app/",
   },
   {
-    id: 6,
+    id: 7,
     title: "React Portfolio project",
     description: "personal site built by  React, prisma, and tailwind",
     image: "/images/portfolio.jpg",
@@ -71,7 +81,7 @@ const projectsData = [
     previewUrl: "https://akeja.vercel.app/  ",
   },
   {
-    id: 7,
+    id: 8,
     title: "Wordpress site",
     description: "wordpress site customized by Elementor and other plugins. seo first ",
     image: "/images/coinged.png",

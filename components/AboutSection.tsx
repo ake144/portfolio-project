@@ -19,6 +19,23 @@ const TAB_DATA: TabData[] = [
     id: "certifications",
     content: (
       <ul className="list-disc pl-2">
+           <li>
+        <Link
+              href="/Mern.jpg"
+              className="inline-block mx-8 py-1  sm:w-fit rounded-full"
+            >
+              MERN Stack, Udemy
+          </Link>
+          </li>
+
+          <li>
+        <Link
+              href="/python.pdf"
+              className="inline-block mx-8 py-1  sm:w-fit rounded-full"
+            >
+             Python Flask with HTML 5 - Udemy
+          </Link>
+          </li>
         <li >
           <p  className="inline-block mx-8 py-1  sm:w-fit rounded-full">Coursera deep learning certification 
              </p>
