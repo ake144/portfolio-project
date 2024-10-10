@@ -18,19 +18,20 @@ interface SlideProps {
 }
 
 const slidesContent= [
-    {
-      title: "He is the future",
-      description: "He is the epitome of potential, embodying innovation and determination. With his visionary mindset and unwavering commitment, he's destined to shape the future. A trailblazer in every sense, he's paving the way for what's to come.",
-      author: "Mengistu Abshiro",
-      location: "from USA"
-    },
-    {
-      title: "An Exceptional Programmer",
-      description: "Aklilu is an exceptional programmer and web developer. His coding skills are top-notch, and he always delivers high-quality work on time. Whether it's building a complex web application or solving a tricky bug",
-      author: "Amanuel Garomsa",
-      location: "CS at AAU"
-    }
-  ];
+  {
+    "title": "A Visionary Leader of Tomorrow",
+    "description": "He represents the very essence of innovation and forward-thinking. With boundless potential and an unwavering drive for excellence, his visionary mindset is destined to reshape industries and inspire the next generation. His leadership and determination are paving the path for an extraordinary future.",
+    "author": "Mengistu Abshiro",
+    "location": "USA"
+  },
+  {
+    "title": "A Masterful Developer with Unmatched Expertise",
+    "description": "Aklilu is not just a programmer; he's a true craftsman of the digital world. His deep coding expertise, combined with a meticulous approach to problem-solving, ensures that every project is completed to perfection. From complex web applications to fixing intricate bugs, his work consistently exceeds expectations.",
+    "author": "Amanuel Garomsa",
+    "location": "CS at AAU"
+  }
+]
+
 const Testimonials: React.FC<SlideProps> = () => {
   useEffect(() => {
     const keenSlider = new KeenSlider('#keen-slider', {
@@ -127,15 +128,14 @@ const Testimonials: React.FC<SlideProps> = () => {
                                         </div>
 
                                         <div className="mt-4">
-                                            <p className="text-2xl font-bold text-rose-600 sm:text-3xl">He is Inevitable</p>
+                                              <p className="text-2xl font-bold text-rose-600 sm:text-3xl">A Force of Nature</p>
 
-                                            <p className="mt-4 leading-relaxed dark:text-white text-gray-700">
-                                            Knowing him has shown me what true dedication looks like. He&apos;s a hard worker who stops at nothing to achieve his goals.
-                                            His unwavering belief in his principles and vast experience in the tech world.
-                                            He&apos;s not just a colleague; he&apos;s an inspiration.
-                                        </p>
+                                              <p className="mt-4 leading-relaxed dark:text-white text-gray-700">
+                                                Knowing him has redefined my understanding of true dedication and resilience. His relentless pursuit of excellence and unshakable commitment to his goals set him apart.
+                                                With deep expertise in the tech industry and an unyielding belief in his values, he’s more than just a colleague—he's a source of constant inspiration and growth.
+                                              </p>
+                                            </div>
 
-                                        </div>
                                     </div>
 
                                     <footer className="mt-4 text-sm font-medium dark:text-white text-gray-700 sm:mt-6">
