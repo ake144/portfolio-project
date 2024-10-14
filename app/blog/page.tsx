@@ -1,14 +1,16 @@
 'use client'
 
 import { Button } from '@/components/ui/button';
-import Link from 'next/link'
+import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
 
 const BlogPost = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -22,7 +24,7 @@ const BlogPost = () => {
         const res = await fetch('https://nextjs-cms1.vercel.app/api/posts', {
           method: 'GET',
           headers,
-          cache:'force-cache'
+          cache: 'force-cache', // You can also look into Incremental Static Generation (ISR) here
         });
 
         if (!res.ok) {
@@ -30,8 +32,7 @@ const BlogPost = () => {
         }
 
         const data = await res.json();
-        setPosts(data.data[0].posts); // Assuming the API returns posts under `data`
-        console.log('Fetched posts:', data.data);
+        setPosts(data.data[0].posts); 
       } catch (error) {
         console.error('Error fetching posts:', error);
       } finally {
@@ -43,45 +44,52 @@ const BlogPost = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading posts...</p>;
+    return (
+      <div className="skeleton-loader">Loading posts...</div> // Use a skeleton loader here
+    );
   }
 
   return (
     <>
-     <div className="mx-auto lg:ml-[70px] lg:mt-[50px] mt-10 p-6">
-      <div className='flex flex-row'>
-        <Button onClick={() => router.back()} className='mb-6 p-5'>
-          Back
-         </Button>
-        <h2 className='mt-[50px] p-6 text-4xl flex items-center justify-center'>
-          Explore latest posts
-        </h2>
-      </div>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 mx-4 mt-7 lg:grid-cols-3">
-        {posts.map((post: any) => (
-          <article key={post.id} className="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
-            <img
-              alt={post.title}
-              src={post.image || "https://via.placeholder.com/400"}
-              className="h-56 w-full object-cover"
-            />
-            <div className="bg-white p-4 sm:p-6">
-              <time dateTime={new Date(post.created_at).toString()} className="block text-xs text-gray-500">
-                {new Date(post.created_at).toLocaleDateString()}
-              </time>
-              <Link href={`/blog/${post.id}`}>
-                <h3 className="mt-0.5 text-lg text-gray-900">{post.title}</h3>
-              </Link>
-              <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
-                {post.content}
-              </p>
-            </div>
-          </article>
-        ))}
-      </div>
+      <Head>
+        <title>Blog Posts</title>
+        <meta name="description" content="Explore the latest posts in my portfolio blog." />
+      </Head>
+      <div className="container mx-auto p-6">
+        <div className="flex items-center justify-between">
+          <Button onClick={() => router.back()} className="mb-6 p-5">
+            Back
+          </Button>
+          <h2 className="text-4xl mt-5">Explore Latest Posts</h2>
+        </div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mt-7">
+          {posts.map((post: any) => (
+            <article key={post.id} className="rounded-lg shadow-lg hover:shadow-xl transition">
+              <Image
+              width={600}
+              height={500}
+                alt={post.title}
+                src={post.image || "https://via.placeholder.com/400"}
+                className="h-56 w-full object-cover"
+                loading="lazy" // Lazy load images for better performance
+              />
+              <div className="bg-white p-4 sm:p-6">
+                <time dateTime={new Date(post.created_at).toISOString()} className="block text-xs text-gray-500">
+                  {new Date(post.created_at).toLocaleDateString()}
+                </time>
+                <Link href={`/blog/${post.id}`}>
+                  <h3 className="mt-2 text-lg text-gray-900 hover:underline">{post.title}</h3>
+                </Link>
+                <p className="mt-2 text-sm text-gray-500 line-clamp-3">
+                  {post.content}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </>
   );
-}
+};
 
 export default BlogPost;
