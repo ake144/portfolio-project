@@ -132,7 +132,7 @@ const Testimonials: React.FC<SlideProps> = () => {
 
                                               <p className="mt-4 leading-relaxed dark:text-white text-gray-700">
                                                 Knowing him has redefined my understanding of true dedication and resilience. His relentless pursuit of excellence and unshakable commitment to his goals set him apart.
-                                                With deep expertise in the tech industry and an unyielding belief in his values, he’s more than just a colleague—he's a source of constant inspiration and growth.
+                                                With deep expertise in the tech industry and an unyielding belief in his values, he&aposs more than just a colleague—he&aposs a source of constant inspiration and growth.
                                               </p>
                                             </div>
 
