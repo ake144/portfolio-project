@@ -30,6 +30,11 @@ const slugs = [
   "androidstudio",
   "sonarqube",
   "figma",
+  "wordpress",
+  "elementor",
+  "woocommerce",
+  "PhP",
+  
 ];
 
 export function Skills() {
