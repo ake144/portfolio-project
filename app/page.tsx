@@ -7,6 +7,7 @@ import ProjectsSection from '@/components/projectSection'
 import Testimonials from '@/components/Testimonials'
 import EmailSection from "@/components/EmailSection";
 import Footer from "@/components/Footer";
+import ServicesSection from "@/components/services";
 
 
 
@@ -19,6 +20,7 @@ export default function Home() {
       <HeroSection />
       <AchievementsSection />
       <AboutSection />
+      <ServicesSection />
       <SkillCards />
       <ProjectsSection />
       <Testimonials />
