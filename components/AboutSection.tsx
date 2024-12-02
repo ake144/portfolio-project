@@ -1,128 +1,90 @@
-'use client'
+"use client";
 
-
-import React, { useTransition, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import TabButton from "./TabButton";
-import Link from "next/link";
+import { motion } from "framer-motion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-interface TabData {
-  title: string;
-  id: string;
-  content: JSX.Element;
-}
-
-const TAB_DATA: TabData[] = [
-
-  {
-    title: "Certifications",
-    id: "certifications",
-    content: (
-      <ul className="list-disc pl-2">
-           <li>
-        <Link
-              href="/Mern.jpg"
-              className="inline-block mx-8 py-1  sm:w-fit rounded-full"
-            >
-              MERN Stack, Udemy
-          </Link>
-          </li>
-
-          <li>
-        <Link
-              href="/python.pdf"
-              className="inline-block mx-8 py-1  sm:w-fit rounded-full"
-            >
-             Python Flask with HTML 5 - Udemy
-          </Link>
-          </li>
-        <li >
-          <p  className="inline-block mx-8 py-1  sm:w-fit rounded-full">Coursera deep learning certification 
-             </p>
-        </li>
-        <li>
-        <Link
-              href="/fundamentals.pdf"
-              className="inline-block mx-8 py-1  sm:w-fit rounded-full"
-            >
-              Programming Fundamentals, Udacity
-          </Link>
-          </li>
-          <li>
-          <Link
-              href="/debugging.pdf"
-              className="inline-block mx-8 py-1  sm:w-fit rounded-full"
-            >
-              Debugging, Udemy
-          </Link>
-          </li>
-
-        <li >
-        <p  className="inline-block mx-8 py-1  sm:w-fit rounded-full">  FreeCode Camp front-end certification
-          </p>
-        </li>
-      </ul>
-    ),
-  },
-  {
-    title: "Education",
-    id: "education",
-    content: (
-      <ul className="list-disc pl-2">
-        <li>Addis Ababa University, Computer Science</li>
-        <li>Coursera</li>
-        <li>Youtube Academy</li>
-      </ul>
-    ),
-  },
-];
+import { Card, CardContent } from "@/components/ui/card";
+import { TAB_DATA } from "./aboutData";
 
 const AboutSection: React.FC = () => {
-  const [tab, setTab] = useState<string>("Education");
-  const [isPending, startTransition] = useTransition();
-
-  const handleTabChange = (id: string) => {
-    startTransition(() => {
-      setTab(id);
-    });
-  };
-
-  // Check if the tab exists in TAB_DATA, if not, default to the first tab
-  const selectedTab = TAB_DATA.find((t) => t.id === tab);
-  const defaultTab = TAB_DATA[0];
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
-    <section className="dark:text-white" id="about">
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <Image src="/images/about-image.png" alt="💻" width={500} height={500} />
-        <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
-          <h2 className="text-4xl font-bold black:text-white mb-4">About Me</h2>
-          <p className="text-base lg:text-lg dark:text-white">
-            I am a full stack web developer with a passion for creating
-            interactive and responsive web applications. I am a team player and
-            I am excited to work with others to create amazing applications.
-          </p>
-          <div className="flex flex-row justify-start mt-8">
-          
-            <TabButton
-              selectTab={() => handleTabChange("certifications")}
-              active={tab === "certifications"}
+    <section className="py-16 bg-gradient-to-b from-background to-background/80" id="about">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="grid md:grid-cols-2 gap-12 items-center"
+        >
+          {/* Image Section */}
+          <div className="relative">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
-              {" "}
-              Certifications{" "}
-            </TabButton>
-            <TabButton
-              selectTab={() => handleTabChange("education")}
-              active={tab === "education"}
+              <Image
+                src="/images/about-image.png"
+                alt="About me"
+                width={500}
+                height={500}
+                className="rounded-lg shadow-2xl"
+              />
+            </motion.div>
+            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-primary rounded-full opacity-20 blur-2xl" />
+          </div>
+
+          {/* Content Section */}
+          <div>
+            <motion.h2
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-4xl font-bold mb-6 text-foreground"
             >
-              {" "}
-              Education{" "}
-            </TabButton>
+              About Me
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-lg text-muted-foreground mb-8"
+            >
+              I am a passionate full stack web developer with a knack for creating interactive and
+              responsive web applications. My journey in tech is driven by curiosity and a constant
+              desire to learn. I thrive in collaborative environments and am always excited to work
+              with others to bring innovative ideas to life.
+            </motion.p>
+
+            {/* Tabs Section */}
+            <Tabs defaultValue={TAB_DATA[0].id}>
+              {/* Tabs List */}
+              <TabsList className="flex space-x-4 mb-8">
+                {TAB_DATA.map((tab) => (
+                  <TabsTrigger
+                    key={tab.id}
+                    value={tab.id}
+                    className="px-4 py-2 rounded-full font-medium transition-colors bg-muted text-muted-foreground hover:bg-muted/80 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                  >
+                    {tab.title}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+
+              {/* Tabs Content */}
+              {TAB_DATA.map((tab) => (
+                <TabsContent key={tab.id} value={tab.id}>
+                  <Card>
+                    <CardContent className="p-6">{tab.content}</CardContent>
+                  </Card>
+                </TabsContent>
+              ))}
+            </Tabs>
           </div>
-          <div className="mt-8 font-bold ">
-            {selectedTab ? selectedTab.content : defaultTab.content}
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
