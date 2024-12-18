@@ -67,7 +67,7 @@ export default function RootLayout({
       <body className={`${inter.className} ${roboto_mono.variable}`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

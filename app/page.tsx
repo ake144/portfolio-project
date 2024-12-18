@@ -4,7 +4,7 @@ import AchievementsSection from '@/components/achievement'
 import AboutSection from '@/components/AboutSection'
 import {SkillCards} from '@/components/skillCard'
 import ProjectsSection from '@/components/projectSection'
-import Testimonials from '@/components/Testimonials'
+import {Testimonials} from '@/components/Testimonials'
 import EmailSection from "@/components/EmailSection";
 import Footer from "@/components/Footer";
 import ServicesSection from "@/components/services";

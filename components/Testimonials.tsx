@@ -1,223 +1,121 @@
-'use client'
-import React, { useEffect } from 'react';
-import 'keen-slider/keen-slider.min.css'
-import KeenSlider from 'keen-slider'
+"use client"
 
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
+import React from "react"
+import { cn } from "@/lib/utils"
 
-interface SlideProps {
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Marquee } from "./ui/marquee"
 
-}
-
-const slidesContent= [
+const testimonials = [
   {
-    "title": "A Visionary Leader of Tomorrow",
-    "description": "He represents the very essence of innovation and forward-thinking. With boundless potential and an unwavering drive for excellence, his visionary mindset is destined to reshape industries and inspire the next generation. His leadership and determination are paving the path for an extraordinary future.",
-    "author": "Mengistu Abshiro",
-    "location": "USA"
+    name: "Sarah Johnson",
+    username: "@sarahj",
+    body: "Working with this professional has transformed my project. Their expertise and dedication are unmatched!",
+    img: "/placeholder.svg?height=80&width=80",
+    role: "Project Manager"
   },
   {
-    "title": "A Masterful Developer with Unmatched Expertise",
-    "description": "Aklilu is not just a programmer; he's a true craftsman of the digital world. His deep coding expertise, combined with a meticulous approach to problem-solving, ensures that every project is completed to perfection. From complex web applications to fixing intricate bugs, his work consistently exceeds expectations.",
-    "author": "Amanuel Garomsa",
-    "location": "CS at AAU"
-  }
+    name: "Michael Chen",
+    username: "@mikechen",
+    body: "A true innovator! Their approach to design has elevated our user experience significantly.",
+    img: "/placeholder.svg?height=80&width=80",
+    role: "UX Designer"
+  },
+  {
+    name: "Emily Rodriguez",
+    username: "@emrod",
+    body: "Their analytical skills are top-notch. We saw measurable improvements thanks to their insights.",
+    img: "/placeholder.svg?height=80&width=80",
+    role: "Data Scientist"
+  },
+  {
+    name: "Alex Thompson",
+    username: "@alexthom",
+    body: "Efficient and reliable, they helped streamline our workflows and optimize our project outcomes.",
+    img: "/placeholder.svg?height=80&width=80",
+    role: "Product Manager"
+  },
+  {
+    name: "Olivia Parker",
+    username: "@oliviap",
+    body: "As a freelancer, collaborating with them was a game-changer. Their professionalism is commendable.",
+    img: "/placeholder.svg?height=80&width=80",
+    role: "Freelance Writer"
+  },
+  {
+    name: "David Kim",
+    username: "@davidk",
+    body: "Their strategies have significantly enhanced our marketing efforts. A valuable asset to any team!",
+    img: "/placeholder.svg?height=80&width=80",
+    role: "Marketing Specialist"
+  },
 ]
 
-const Testimonials: React.FC<SlideProps> = () => {
-  useEffect(() => {
-    const keenSlider = new KeenSlider('#keen-slider', {
-      loop: true,
-      
+const firstRow = testimonials.slice(0, testimonials.length / 2)
+const secondRow = testimonials.slice(testimonials.length / 2)
 
-      slides: {
-        origin: 'center',
-        perView: 1.25,
-        spacing: 16,
-      },
-      breakpoints: {
-        '(min-width: 1024px)': {
-            slides: {
-                origin: 'auto',
-                perView: 1.5,
-                spacing: 32,
-              },
-        },
-      },
-    });
-
-    const keenSliderPrevious = document.getElementById('keen-slider-previous');
-    const keenSliderNext = document.getElementById('keen-slider-next');
-    const keenSliderPreviousDesktop = document.getElementById('keen-slider-previous-desktop');
-    const keenSliderNextDesktop = document.getElementById('keen-slider-next-desktop');
-
-    if (keenSliderPrevious && keenSliderNext && keenSliderPreviousDesktop && keenSliderNextDesktop) {
-      keenSliderPrevious.addEventListener('click', () => keenSlider.prev());
-      keenSliderNext.addEventListener('click', () => keenSlider.next());
-      keenSliderPreviousDesktop.addEventListener('click', () => keenSlider.prev());
-      keenSliderNextDesktop.addEventListener('click', () => keenSlider.next());
-
-      // Cleanup function
-      return () => {
-        keenSlider.destroy(); // Cleanup the slider when component unmounts
-        keenSliderPrevious.removeEventListener('click', () => keenSlider.prev());
-        keenSliderNext.removeEventListener('click', () => keenSlider.next());
-        keenSliderPreviousDesktop.removeEventListener('click', () => keenSlider.prev());
-        keenSliderNextDesktop.removeEventListener('click', () => keenSlider.next());
-      };
-    }
-  }, []);
-
-
-    return (
-        <section className=" my-5 p-4" id='testimonials'>
-            <div className="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
-                <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16">
-                    <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-                        <h2 className="text-3xl font-bold tracking-tight black:text-white  sm:text-4xl">
-                             What do people say about me?
-                        </h2>
-
-                        <p className="mt-4 dark:text-white text-gray-700">
-                                Hear what others are saying about my work.
-                        </p>
-
-                        <div className="hidden lg:mt-8 lg:flex lg:gap-4">
-                             
-                        <Pagination>
-                            <PaginationContent className={'cursor-pointer'}>
-                                <PaginationItem >
-                                <PaginationPrevious   id="keen-slider-previous-desktop"/>
-                                </PaginationItem>
-                
-                                <PaginationItem>
-                                <PaginationNext  id="keen-slider-next-desktop"/>
-                                </PaginationItem>
-                              </PaginationContent>
-                            </Pagination>
-                        </div>
-                    </div>
-
-                    <div className="-mx-6 lg:col-span-2 lg:mx-0">
-                        <div id="keen-slider" className="keen-slider">
-                            <div className="keen-slider__slide">
-                                <blockquote className="flex h-full flex-col justify-between  p-6 shadow-sm sm:p-8 lg:p-12">
-                                    <div>
-                                        <div className="flex gap-0.5 text-green-500">
-                                            {[...Array(5)].map((_, index) => (
-                                                <svg
-                                                    key={index}
-                                                    className="h-5 w-5"
-                                                    fill="currentColor"
-                                                    viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                >
-                                                    <path
-                                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                                    />
-                                                </svg>
-                                            ))}
-                                        </div>
-
-                                        <div className="mt-4">
-                                              <p className="text-2xl font-bold text-rose-600 sm:text-3xl">A Force of Nature</p>
-
-                                              <p className="mt-4 leading-relaxed dark:text-white text-gray-700">
-                                                Knowing him has redefined my understanding of true dedication and resilience. His relentless pursuit of excellence and unshakable commitment to his goals set him apart.
-                                                With deep expertise in the tech industry and an unyielding belief in his values, he&aposs more than just a colleague—he&aposs a source of constant inspiration and growth.
-                                              </p>
-                                            </div>
-
-                                    </div>
-
-                                    <footer className="mt-4 text-sm font-medium dark:text-white text-gray-700 sm:mt-6">
-                                        &mdash; Degefe Abebe <span className='text-green-500 text-xl'>-  </span>student at WSU
-                                    </footer>
-                                </blockquote>
-                            </div>
-
-                            {slidesContent.map((slide, slideIndex) => (
-      <div key={slideIndex} className="keen-slider__slide">
-        <blockquote className="flex h-full flex-col justify-between p-6 shadow-sm sm:p-8 lg:p-12">
+const TestimonialCard = ({
+  img,
+  name,
+  username,
+  body,
+  role,
+}: {
+  img: string
+  name: string
+  username: string
+  body: string
+  role: string
+}) => {
+  return (
+    <Card className="w-[350px] mx-4 my-6 bg-background/80 backdrop-blur-sm hover:bg-accent transition-colors duration-300">
+      <CardContent className="p-6">
+        <div className="flex items-center space-x-4 mb-4">
+          <Avatar>
+            <AvatarImage src={img} alt={name} />
+            <AvatarFallback>{name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+          </Avatar>
           <div>
-            <div className="flex gap-0.5 text-green-500">
-              {[...Array(5)].map((_, index) => (
-                <svg
-                  key={index}
-                  className="h-5 w-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                  />
-                </svg>
-              ))}
-            </div>
-
-            <div className="mt-4">
-              <p className="text-2xl font-bold text-rose-600 sm:text-3xl">{slide.title}</p>
-              <p className="mt-4 leading-relaxed dark:text-white text-gray-700">{slide.description}</p>
-            </div>
+            <h3 className="font-semibold">{name}</h3>
+            <p className="text-sm text-muted-foreground">{username}</p>
           </div>
+          <Badge variant="secondary" className="ml-auto">
+            {role}
+          </Badge>
+        </div>
+        <blockquote className="text-sm italic">{body}</blockquote>
+      </CardContent>
+    </Card>
+  )
+}
 
-          <footer className="mt-4 text-sm font-medium dark:text-white text-gray-700 sm:mt-6">
-            &mdash; {slide.author} <span className="text-green-500 text-xl">- </span> {slide.location}
-          </footer>
-        </blockquote>
+export function Testimonials() {
+  return (
+    <section className="py-24 bg-gradient-to-b from-background to-secondary/20">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center mb-12">
+          What People Say
+        </h2>
+        <p className="text-xl text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
+          Discover how my work has positively impacted clients and collaborators alike.
+        </p>
+        <div className="relative w-full overflow-hidden">
+          <Marquee className="py-4" pauseOnHover speed={20}>
+            {firstRow.map((testimonial) => (
+              <TestimonialCard key={testimonial.username} {...testimonial} />
+            ))}
+          </Marquee>
+          <Marquee className="py-4" pauseOnHover speed={20} reverse>
+            {secondRow.map((testimonial) => (
+              <TestimonialCard key={testimonial.username} {...testimonial} />
+            ))}
+          </Marquee>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-background"></div>
+        </div>
       </div>
-    ))}
-                           
-                        </div>
-
-                        <div className="mt-8 lg:hidden">
-                            <button
-                                aria-label="Previous slide"
-                                id="keen-slider-previous"
-                                className="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth="1.5"
-                                    stroke="currentColor"
-                                    className="size-5 rtl:rotate-180"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                                </svg>
-                            </button>
-
-                            <button
-                                aria-label="Next slide"
-                                id="keen-slider-next"
-                                className="rounded-full border border-rose-600 p-3 dark:text-white transition hover:bg-rose-600 dark:bg-slate-600 hover:text-white"
-                            >
-                                <svg
-                                    className="size-5 rtl:rotate-180"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-};
-
-export default Testimonials;
+    </section>
+  )
+}
