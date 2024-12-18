@@ -6,6 +6,7 @@ import './globals.css';
 import { Analytics } from "@vercel/analytics/react";
 import BottomNav from '@/components/bottom';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import { Toaster } from "@/components/ui/toaster"
 
 const inter = Inter({
   subsets: ['latin'],
@@ -63,7 +64,7 @@ export default function RootLayout({
       <Head>
         <meta name="description" content={metadata.openGraph?.description ?? ''} />
       </Head>
-      <html lang="en" suppressHydrationWarning />
+      <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} ${roboto_mono.variable}`}>
         <ThemeProvider
           attribute="class"
@@ -81,6 +82,8 @@ export default function RootLayout({
         </ThemeProvider>
         <Analytics  />
       </body>
+      <Toaster />
+      </html>
     </>
   );
 }

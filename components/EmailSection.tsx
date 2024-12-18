@@ -1,14 +1,24 @@
 "use client";
+
+import { useToast } from "@/hooks/use-toast";
+import { ToastAction } from "@radix-ui/react-toast";
 import React, { useState } from "react";
 
 
+
 const EmailSection = () => {
+
+
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [loading,setLoading] = useState<null | Boolean>(false)
 
+  const { toast } = useToast()
+
+   
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    setError(null); // Reset error state
+    setError(null);
 
     const data = {
       email: e.target.email.value,
@@ -17,6 +27,7 @@ const EmailSection = () => {
     };
 
     const JSONdata = JSON.stringify(data);
+   
     const endpoint = "/api/send";
 
     const options = {
@@ -27,17 +38,32 @@ const EmailSection = () => {
       body: JSONdata,
     };
 
+    setLoading(true)
+    
     try {
       const response = await fetch(endpoint, options);
       const resData = await response.json();
+     
 
       if (response.ok) {
         setEmailSubmitted(true);
+        toast({
+          description: "Your message has been sent.",
+        })
       } else {
+        toast({
+          variant: "destructive",
+          title: "Uh oh! Something went wrong.",
+          description: "There was a problem while sending your message.",
+          action: <ToastAction altText="Try again">Try again</ToastAction>,
+        })
         setError(resData.message || "Something went wrong. Please try again.");
       }
     } catch (error) {
       setError("Network error. Please check your connection.");
+    }
+    finally{
+      setLoading(false)
     }
   };
 
@@ -113,7 +139,9 @@ const EmailSection = () => {
                 className="font-medium py-2.5 px-5 rounded-lg text-center text-white items-center hover:text-xl hover:bg-green-500 flex justify-center"
                 type="submit"
               >
-                Send a message
+                {
+                loading  ? "Sending..." : "Send a message"
+                }
               </button>
           </form>
         )}
