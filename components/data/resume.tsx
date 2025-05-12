@@ -24,7 +24,6 @@ export const DATA = {
     { href: "#projects", icon: Briefcase, label: "Projects" },
     { href: "#contact", icon: Phone, label: "Contact" },
     {href:"#testimonials", icon:Star, label:"Testimonials"},
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
 
   ],
   contact: {
