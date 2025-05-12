@@ -18,7 +18,7 @@ const projectsData =  [
   {
     id: 1,
     title: "E-learning Platform",
-    description: "A feature-rich e-learning web app allowing users to take quizzes, track progress, view stories, and improve learning. Built with Next.js 14, Clerk, Prisma, and Tailwind CSS.",
+    description: "A feature-rich e-learning web app allowing users to take quizzes, track progress, view stories, and improve learning. Built with Next.js 14, Node.js, nextauth, Prisma, and Tailwind CSS.",
     image: "/images/e-learning.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/ake144/E-LEARNING-FRONT",

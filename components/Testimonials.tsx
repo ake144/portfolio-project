@@ -10,48 +10,49 @@ import { Marquee } from "./ui/marquee"
 
 const testimonials = [
   {
-    name: "Sarah Johnson",
-    username: "@sarahj",
-    body: "Working with this professional has transformed my project. Their expertise and dedication are unmatched!",
-    img: "/placeholder.svg?height=80&width=80",
-    role: "Project Manager"
+    name: "Lidya Mekonnen",
+    username: "@lidya.dev",
+    body: "Aklilu transformed our old website into a blazing-fast, modern platform with Next.js and Tailwind. Truly impressive!",
+    img: "/images/testimonials/lidya.png",
+    role: "Frontend Developer"
   },
   {
-    name: "Michael Chen",
-    username: "@mikechen",
-    body: "A true innovator! Their approach to design has elevated our user experience significantly.",
-    img: "/placeholder.svg?height=80&width=80",
-    role: "UX Designer"
+    name: "Kalkidan Tesfaye",
+    username: "@kal_tes",
+    body: "We needed a CMS with analytics, user roles, and blog publishing – he delivered exactly what we imagined, and more.",
+    img: "/images/testimonials/kalkidan.png",
+    role: "Startup Co-founder"
   },
   {
-    name: "Emily Rodriguez",
-    username: "@emrod",
-    body: "Their analytical skills are top-notch. We saw measurable improvements thanks to their insights.",
-    img: "/placeholder.svg?height=80&width=80",
-    role: "Data Scientist"
+    name: "Eyob Abera",
+    username: "@eyobtech",
+    body: "Aklilu's UI/UX design sense is amazing. The job platform he built for us looks professional and is easy to use.",
+    img: "/images/testimonials/eyob.png",
+    role: "Product Designer"
   },
   {
-    name: "Alex Thompson",
-    username: "@alexthom",
-    body: "Efficient and reliable, they helped streamline our workflows and optimize our project outcomes.",
-    img: "/placeholder.svg?height=80&width=80",
-    role: "Product Manager"
+    name: "Helina Tadesse",
+    username: "@helina_codes",
+    body: "His integration of AI tools into our e-learning platform saved us weeks of manual work. Highly skilled developer!",
+    img: "/images/testimonials/helina.png",
+    role: "Tech Lead"
   },
   {
-    name: "Olivia Parker",
-    username: "@oliviap",
-    body: "As a freelancer, collaborating with them was a game-changer. Their professionalism is commendable.",
-    img: "/placeholder.svg?height=80&width=80",
-    role: "Freelance Writer"
+    name: "Biniam Yohannes",
+    username: "@biniam_ui",
+    body: "He’s always up-to-date with modern tools like Shadcn, Prisma, and Clerk. Working with him felt like working with a senior dev.",
+    img: "/images/testimonials/biniam.png",
+    role: "UI Engineer"
   },
   {
-    name: "David Kim",
-    username: "@davidk",
-    body: "Their strategies have significantly enhanced our marketing efforts. A valuable asset to any team!",
-    img: "/placeholder.svg?height=80&width=80",
-    role: "Marketing Specialist"
+    name: "Meron Alemu",
+    username: "@meronwrites",
+    body: "Aklilu helped me build a clean blog site with SEO features and amazing performance. Couldn’t ask for better!",
+    img: "/images/testimonials/meron.png",
+    role: "Content Strategist"
   },
-]
+];
+
 
 const firstRow = testimonials.slice(0, testimonials.length / 2)
 const secondRow = testimonials.slice(testimonials.length / 2)
