@@ -19,7 +19,7 @@ const projectsData =  [
     id: 1,
     title: "E-learning Platform",
     description: "A feature-rich e-learning web app allowing users to take quizzes, track progress, view stories, and improve learning. Built with Next.js 14, Clerk, Prisma, and Tailwind CSS.",
-    image: "/images/elearning.png",
+    image: "/images/e-learning.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/ake144/E-LEARNING-FRONT",
     previewUrl: "https://brightethiopia.vercel.app/",
@@ -27,7 +27,7 @@ const projectsData =  [
   {
     id: 2,
     title: "Church platform",
-    description: "A church platform to track attendance, to register, and follow up memebers using QR-Scanner physical machine with generated Qr code",
+    description: "A church platform to track attendance, register, and follow up memebers using QR-Scanner physical machine with generated Qr code",
     image: "/images/church1.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/ake144/attendance-with-QRCode",
